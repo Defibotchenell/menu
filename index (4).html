@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Иван Малютин</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{--bg:#0f1220;--card:#1a1f35;--text:#f2f3f8;--muted:#a3a8c3;--accent:#ffd23f;--btn:#262c4a}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--text);font:16px/1.45 -apple-system,"Helvetica Neue",Arial,sans-serif;padding:20px 16px 32px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .back{display:none;background:var(--btn);color:var(--text);border:0;border-radius:12px;width:40px;height:40px;font-size:20px}
+  h1{font-size:22px;font-weight:800}
+  .intro{color:var(--muted);margin-bottom:18px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .tile{background:var(--card);border:1px solid #2b3150;border-radius:18px;padding:18px 14px;min-height:118px;
+        display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:var(--text);font:inherit}
+  .tile:active,.btn:active{transform:scale(.98)}
+  .tile:last-child:nth-child(odd){grid-column:span 2;min-height:64px;flex-direction:row;align-items:center;gap:12px;justify-content:flex-start}
+  .tile .ic{font-size:30px}
+  .tile .tt{font-weight:700;font-size:15px;line-height:1.25}
+  .page{display:none}
+  .card{background:var(--card);border-radius:18px;padding:18px;margin-bottom:14px}
+  .card i{color:var(--muted);font-size:13px}
+  .btns{display:flex;flex-direction:column;gap:10px}
+  .btn{background:var(--btn);color:var(--text);border:0;border-radius:14px;padding:14px 16px;text-align:left;font:inherit;font-weight:600}
+  .btn:first-child{background:var(--accent);color:#1b1f3b}
+</style>
+</head>
+<body>
+<header><button class="back" id="back">←</button><h1 id="title">Иван Малютин</h1></header>
+<div id="home">
+  <p class="intro">Привет! 👋 Я Иван Малютин: предприниматель в Дубае, 13+ лет в бизнесе.</p>
+  <div class="grid">
+<button class="tile" data-menu="ai"><span class="ic">🤖</span><span class="tt">AI для бизнеса и контента</span></button>
+<button class="tile" data-menu="crypto"><span class="ic">📈</span><span class="tt">Крипта, DeFi, инвестиции</span></button>
+<button class="tile" data-menu="fin"><span class="ic">🏦</span><span class="tt">Meridian Pay — финансовые вопросы</span></button>
+<button class="tile" data-menu="dubai"><span class="ic">🌴</span><span class="tt">Дубай в одном окне</span></button>
+<button class="tile" data-url="https://t.me/prostodelayIvan"><span class="ic">📢</span><span class="tt">Мой Telegram-канал</span></button>
+  </div>
+</div>
+<section class="page" id="p-ai"><div class="card">• Разработка и внедрение AI в бизнес любой сложности: агенты, автоматизация, расчёты. Пример: коммерческое предложение за 2 часа вместо двух дней.<br>• AI-агенты, которые работают за вас: отчёты, посты, разбор задач.<br>• AI-контент и монтаж роликов под ключ.<br><br>Бесплатные гайды и сервисы, которыми пользуюсь сам 👇</div><div class="btns"><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=price-app">💰 Услуги и цены</button><button class="btn" data-url="https://t.me/ivan_maliutin">📝 Оставить заявку</button><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=stack-app">📚 Мой стек нейросетей</button><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=agent-app">📚 AI-агент в Telegram</button><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=photo-app">📚 Разбор фото и видео за жизнь</button><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=montage-app">📚 Монтаж рилсов с Claude</button><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=brand-app">📚 Личный бренд (Caleb Ralston)</button><button class="btn" data-url="https://higgsfield.ai?fpr=ivan-9aa1b8">🎬 Higgsfield — AI-видео и мультики</button><button class="btn" data-url="https://try.elevenlabs.io/57c5qxgvao1j">🎙 ElevenLabs — озвучка</button><button class="btn" data-url="https://t.me/ivan_maliutin">✍️ Обсудить проект</button></div></section>
+<section class="page" id="p-crypto"><div class="card">• KOL-маркетинг: можно участвовать в проектах, которые мы ведём, как инфлюенсер или как инвестор.<br>• DeFi: консалтинг для инвесторов. Деньги в управление не берём, работаем за менеджмент и success fee.<br><br>Условия обсуждаем лично.<br><br><i>Не является инвестиционной рекомендацией. Криптовалюты — высокорисковый актив.</i></div><div class="btns"><button class="btn" data-url="https://bingx.com/partner/IvanMaliutin/">📈 Торгую на бирже BingX</button><button class="btn" data-url="https://t.me/ivan_maliutin">✍️ Написать Ивану</button></div></section>
+<section class="page" id="p-fin"><div class="card">Помогаем с международными расчётами для бизнеса и частных клиентов:<br>• платежи между компаниями по всему миру — через лицензированные компании-партнёры;<br>• обмен криптовалюты;<br>• другие финансовые задачи — подскажем решение.<br><br>Каждую задачу разбираем индивидуально, условия обсуждаем лично.<br><br><i>Не является финансовой рекомендацией. Требуется проверка клиента.</i></div><div class="btns"><button class="btn" data-url="https://t.me/ivan_maliutin">✍️ Написать Ивану</button></div></section>
+<section class="page" id="p-dubai"><div class="card">Помогаю с тем, через что прошёл сам:<br>• резидентская виза и Emirates ID<br>• водительские права<br>• аренда машины<br>• прогулка на яхте<br><br>Напиши, что нужно, — подскажу, как сделать быстрее.</div><div class="btns"><button class="btn" data-url="https://t.me/prostodelayIvan_agent_bot?start=dubai-app">📚 Сколько стоит жизнь в Дубае на семью</button><button class="btn" data-url="https://t.me/ivan_maliutin">✍️ Написать Ивану</button></div></section>
+<script>
+  const tg = window.Telegram && Telegram.WebApp;
+  if (tg) { tg.ready(); tg.expand(); }
+  const home = document.getElementById('home'), back = document.getElementById('back'), title = document.getElementById('title');
+  function show(key) {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    if (key) {
+      home.style.display = 'none';
+      document.getElementById('p-' + key).style.display = 'block';
+      title.textContent = document.querySelector(`.tile[data-menu="${key}"] .tt`).textContent;
+      back.style.display = 'block';
+      if (tg) tg.BackButton.show();
+    } else {
+      home.style.display = 'block'; title.textContent = 'Иван Малютин'; back.style.display = 'none';
+      if (tg) tg.BackButton.hide();
+    }
+    window.scrollTo(0, 0);
+  }
+  function open(url) {
+    if (!tg) { window.open(url, '_blank'); return; }
+    url.startsWith('https://t.me/') ? tg.openTelegramLink(url) : tg.openLink(url);
+  }
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-menu],[data-url]');
+    if (!el) return;
+    el.dataset.menu ? show(el.dataset.menu) : open(el.dataset.url);
+  });
+  back.onclick = () => show(null);
+  if (tg) tg.BackButton.onClick(() => show(null));
+  if (location.hash.length > 1) show(location.hash.slice(1));
+</script>
+</body>
+</html>
