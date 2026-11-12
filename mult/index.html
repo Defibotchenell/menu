@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мультик про свою семью</title>
+<meta name="description" content="Pixar-мультик про твою семью по фото — за вечер, без аниматора и камеры.">
+<meta property="og:title" content="Мультик про свою семью за вечер">
+<meta property="og:description" content="Pixar-мультик про твою семью по фото — без аниматора и камеры.">
+<meta property="og:image" content="still1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff8f1; --card: #ffffff; --ink: #2b1d14; --muted: #7a6656;
+    --accent: #ff7a45; --accent-2: #ffb547; --lilac: #b79cff; --line: #f1e3d6;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Nunito, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  /* hero */
+  .hero { padding-top: 28px; padding-bottom: 40px; display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 820px) { .hero { grid-template-columns: 1.1fr .9fr; padding-top: 56px; padding-bottom: 64px; } }
+  .tag { display: inline-block; background: #ffe7d6; color: #c2501d; font-weight: 800; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+  h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.05; margin: 14px 0 14px; font-weight: 900; letter-spacing: -.02em; }
+  h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 19px; color: var(--muted); margin: 0 0 22px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 800; font-size: 18px; padding: 16px 26px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(255,122,69,.8); transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); box-shadow: none; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+  .phone { justify-self: center; width: min(300px, 78vw); aspect-ratio: 9/16; border-radius: 34px; overflow: hidden; border: 8px solid #2b1d14; box-shadow: 0 30px 60px -25px rgba(43,29,20,.55); background: #000; }
+  .phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 44px 0; }
+  h2 { font-size: clamp(26px, 5vw, 38px); line-height: 1.1; margin: 0 0 18px; font-weight: 900; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: -8px 0 24px; }
+
+  /* gallery */
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 720px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+  .gallery figure { margin: 0; border-radius: 18px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+  .gallery img { width: 100%; aspect-ratio: 9/14; object-fit: cover; display: block; }
+  .gallery figcaption { font-weight: 800; font-size: 14px; padding: 8px 12px; }
+
+  /* steps */
+  .steps { display: grid; gap: 14px; counter-reset: s; }
+  @media (min-width: 720px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 20px 18px; position: relative; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; top: -14px; left: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 900; display: grid; place-items: center; font-size: 16px; }
+  .step b { display: block; font-size: 19px; margin: 6px 0 4px; }
+  .step p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* offers */
+  .offers { display: grid; gap: 18px; }
+  @media (min-width: 820px) { .offers { grid-template-columns: 1fr 1fr; } }
+  .offer { background: var(--card); border: 2px solid var(--line); border-radius: 26px; padding: 26px 22px; display: flex; flex-direction: column; }
+  .offer.main { border-color: var(--accent); box-shadow: 0 20px 40px -28px rgba(255,122,69,.9); }
+  .offer .badge { align-self: flex-start; background: var(--accent); color: #fff; font-weight: 800; font-size: 13px; padding: 5px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .offer .badge.l { background: var(--lilac); }
+  .offer h3 { font-size: 24px; margin: 0 0 6px; line-height: 1.15; }
+  .offer .price { font-size: 38px; font-weight: 900; margin: 10px 0 2px; }
+  .offer .price s { font-size: 20px; color: var(--muted); font-weight: 700; margin-left: 8px; }
+  .offer .pnote { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  .offer ul { padding: 0; margin: 0 0 22px; list-style: none; display: grid; gap: 8px; }
+  .offer li { padding-left: 28px; position: relative; font-size: 16px; }
+  .offer li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: #ffe7d6; color: #c2501d; font-weight: 900; font-size: 13px; display: grid; place-items: center; }
+  .offer .btn { margin-top: auto; width: 100%; }
+
+  /* author */
+  .author { display: grid; gap: 18px; align-items: center; background: #2b1d14; color: #fff3e8; border-radius: 28px; padding: 26px 22px; }
+  @media (min-width: 720px) { .author { grid-template-columns: auto 1fr; padding: 32px; } }
+  .author .ava { width: 96px; height: 96px; border-radius: 50%; background: url(still3.jpg) 50% 20%/cover; border: 3px solid var(--accent-2); }
+  .author p { margin: 6px 0 0; color: #e8d6c6; }
+  .author b { color: #fff; font-size: 20px; }
+
+  /* faq */
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin-bottom: 10px; }
+  summary { font-weight: 800; cursor: pointer; font-size: 17px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  .final { text-align: center; padding: 50px 0 70px; }
+  .final .btn { font-size: 19px; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 0 0 30px; }
+
+  .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; display: none; }
+  @media (max-width: 719px) { .sticky { display: flex; } body { padding-bottom: 84px; } }
+  .sticky .btn { width: 100%; }
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div>
+    <span class="tag">🎬 Без аниматора и камеры</span>
+    <h1>Мультик про <span>свою семью</span> за вечер</h1>
+    <p class="lead">По обычным фото — мама, папа, дети и даже пудель становятся героями Pixar-мультика. Такие ролики в рилсах собирают миллионы просмотров и пересылаются бабушкам целыми чатами.</p>
+    <div class="btns">
+      <a class="btn" href="#offers">Хочу свой мультик →</a>
+      <a class="btn ghost" href="#how">Как это работает</a>
+    </div>
+    <p class="note">Все мультики на этой странице — про мою семью, сделаны по этому методу.</p>
+  </div>
+  <div class="phone"><video src="hero.mp4" autoplay muted loop playsinline poster="still1.jpg"></video></div>
+</header>
+
+<section class="wrap">
+  <h2>Это сделано из обычных фото</h2>
+  <p class="sub">Одни и те же герои в каждой серии — лица не «плывут» от кадра к кадру.</p>
+  <div class="gallery">
+    <figure><img src="still1.jpg" alt="Утро малышки" loading="lazy"><figcaption>Утро малышки</figcaption></figure>
+    <figure><img src="still2.jpg" alt="Бусинка" loading="lazy"><figcaption>Бусинка</figcaption></figure>
+    <figure><img src="still3.jpg" alt="Кровать" loading="lazy"><figcaption>Кровать</figcaption></figure>
+    <figure><img src="still4.jpg" alt="Мужчина мечты" loading="lazy"><figcaption>Мужчина мечты</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap" id="how">
+  <h2>Как получается мультик</h2>
+  <div class="steps">
+    <div class="step"><b>Персонажи по фото</b><p>1–2 фото каждого члена семьи → лист персонажа в одном стиле. Главный секрет, без него герои меняются в каждом кадре.</p></div>
+    <div class="step"><b>Сюжет, который уже залетел</b><p>Берём ролик-хит и повторяем его ритм секунда в секунду, только с вашей семьёй.</p></div>
+    <div class="step"><b>Кадры и анимация</b><p>3–4 ключевых кадра → оживляем в нейросети: эмоции, движения, свет как в кино.</p></div>
+    <div class="step"><b>Голоса и звук</b><p>Живые голоса с паузами и смехом, музыка и звуки как в оригинале. Готовый рилс 15–20 секунд.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="offers">
+  <h2>Выбери, как тебе удобнее</h2>
+  <div class="offers">
+    <div class="offer main">
+      <span class="badge">Предзапись · ранняя цена</span>
+      <h3>Мини-курс «Мультик про свою семью»</h3>
+      <div class="price">1 990 ₽<s>4 990 ₽</s></div>
+      <div class="pnote">Цена для предзаписи, после старта — дороже</div>
+      <ul>
+        <li>Пошаговые видеоуроки: от фото до готового рилса</li>
+        <li>Готовые промпты для персонажей, кадров и анимации</li>
+        <li>Шаблон листа персонажа — герои не «плывут»</li>
+        <li>Разбор 10 мультиков-хитов, которые можно повторить</li>
+        <li>Чат с ответами на вопросы</li>
+      </ul>
+      <a class="btn" href="https://t.me/ivan_maliutin?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%80%D1%81%20%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2">Записаться на курс</a>
+    </div>
+    <div class="offer">
+      <span class="badge l">Под ключ</span>
+      <h3>Сделаем мультик про вашу семью</h3>
+      <div class="price">от 9 900 ₽</div>
+      <div class="pnote">Вы присылаете фото — мы делаем всё остальное</div>
+      <ul>
+        <li>Персонажи всей семьи и питомца по фото</li>
+        <li>Сюжет по проверенному хиту или ваша идея</li>
+        <li>Озвучка, музыка, звуки</li>
+        <li>Готовый вертикальный ролик 15–20 секунд</li>
+        <li>Идеальный подарок на день рождения или годовщину</li>
+      </ul>
+      <a class="btn ghost" href="https://t.me/ivan_maliutin?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D0%BA%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87">Заказать мультик</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="author">
+    <div class="ava" role="img" aria-label="Иван"></div>
+    <div>
+      <b>Привет, я Иван Малютин</b>
+      <p>Делаю мультики про свою семью: жену, двух дочек и пуделя. Работаю с нейросетями каждый день, пишу про ИИ в Telegram-канале. Этот метод — то, что я сам использую для каждой серии.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Частые вопросы</h2>
+  <details><summary>Нужно уметь рисовать или монтировать?</summary><p>Нет. Всё делают нейросети, а ты управляешь ими по шагам.</p></details>
+  <details><summary>Сколько стоят нейросети?</summary><p>Для первого мультика хватает бесплатных кредитов. Дальше — от нескольких долларов в месяц, в курсе показываю, где дешевле.</p></details>
+  <details><summary>Получится, если я с телефона?</summary><p>Да, все сервисы работают в браузере на телефоне. С ноутбука просто удобнее.</p></details>
+  <details><summary>Можно с детьми и питомцами?</summary><p>Да, это самые залетающие сюжеты: малыш, папа, собака. Фото остаются у тебя, в рилсе только мультяшные герои.</p></details>
+</section>
+
+<section class="wrap final">
+  <h2>Первый мультик — уже этим вечером</h2>
+  <a class="btn" href="#offers">Выбрать вариант →</a>
+</section>
+
+<footer class="wrap">Иван Малютин · <a href="https://t.me/prostodelayIvan">t.me/prostodelayIvan</a></footer>
+
+<div class="sticky"><a class="btn" href="#offers">Хочу свой мультик →</a></div>
+</body>
+</html>
