@@ -17,6 +17,7 @@
     --radius: 22px;
   }
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body { margin: 0; background: var(--bg); color: var(--ink); font-family: Nunito, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.5; }
   a { color: inherit; }
   .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
@@ -27,7 +28,7 @@
   .tag { display: inline-block; background: #ffe7d6; color: #c2501d; font-weight: 800; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
   h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.05; margin: 14px 0 14px; font-weight: 900; letter-spacing: -.02em; }
   h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .lead { font-size: 19px; color: var(--muted); margin: 0 0 22px; }
+  .intro { font-size: 19px; color: var(--muted); margin: 0 0 22px; }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 800; font-size: 18px; padding: 16px 26px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(255,122,69,.8); transition: transform .15s; }
   .btn:hover { transform: translateY(-2px); }
   .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); box-shadow: none; }
@@ -112,7 +113,7 @@
   <div>
     <span class="tag">🎬 Без аниматора и камеры</span>
     <h1>Мультик про <span>свою семью</span> за вечер</h1>
-    <p class="lead">По обычным фото — мама, папа, дети и даже пудель становятся героями Pixar-мультика. Такие ролики в рилсах собирают миллионы просмотров и пересылаются бабушкам целыми чатами.</p>
+    <p class="intro">По обычным фото — мама, папа, дети и даже пудель становятся героями Pixar-мультика. Такие ролики в рилсах собирают миллионы просмотров и пересылаются бабушкам целыми чатами.</p>
     <div class="btns">
       <a class="btn" href="#offers">Хочу свой мультик →</a>
       <a class="btn ghost" href="#how">Как это работает</a>
