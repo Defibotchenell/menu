@@ -192,8 +192,9 @@
     <p class="note">Нажимая кнопку, ты соглашаешься, что мы напишем тебе по указанному контакту.</p>
   </form>
   <div class="thanks" id="thanks" hidden>
-    <b>Заявка принята 🎉</b>
-    <p>Скоро напишем тебе. А пока загляни в канал с ИИ-фишками: <a href="https://t.me/prostodelayIvan">t.me/prostodelayIvan</a></p>
+    <b>Почти готово 🎉</b>
+    <p>Последний шаг: подтверди заявку в Telegram — туда придут старт, оплата и подарки для первых.</p>
+    <a class="btn" id="tgConfirm" href="https://t.me/ivan_ai_guides_bot?start=zayavka">Подтвердить в Telegram →</a>
   </div>
 </section>
 
@@ -237,8 +238,12 @@
     btn.disabled = true; btn.textContent = 'Отправляю…';
     try {
       await fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) });
+      const kind = form.querySelector('input[type=radio]:checked').value.startsWith('Мини') ? 'kurs' : 'key';
+      const link = 'https://t.me/ivan_ai_guides_bot?start=zayavka-' + kind;
+      document.getElementById('tgConfirm').href = link;
       form.hidden = true;
       document.getElementById('thanks').hidden = false;
+      document.getElementById('thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (err) {
       btn.disabled = false; btn.textContent = 'Не отправилось, попробуй ещё раз';
     }
