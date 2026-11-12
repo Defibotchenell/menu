@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-агенты для бизнеса</title>
+<meta name="description" content="AI-агенты и автоматизация для бизнеса: КП за 2 часа вместо 2 дней. Бесплатный разбор процесса.">
+<meta property="og:title" content="AI-агент для вашего бизнеса">
+<meta property="og:description" content="Коммерческое предложение за 2 часа вместо 2 дней. Бесплатный разбор вашего процесса.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1420; --card: #171e2e; --ink: #eef2fb; --muted: #9aa6bf; --accent: #3ddc97; --accent-2: #4da3ff; --line: #26304a; --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Nunito, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  .hero { padding-top: 32px; padding-bottom: 40px; display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 820px) { .hero { grid-template-columns: 1.1fr .9fr; padding-top: 60px; padding-bottom: 64px; } }
+  .tag { display: inline-block; background: rgba(61,220,151,.12); color: var(--accent); font-weight: 800; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+  h1 { font-size: clamp(32px, 6.5vw, 54px); line-height: 1.06; margin: 14px 0 14px; font-weight: 900; letter-spacing: -.02em; }
+  h1 span { color: var(--accent); }
+  .intro { font-size: 19px; color: var(--muted); margin: 0 0 22px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #07140e; text-decoration: none; font-weight: 900; font-size: 18px; padding: 16px 26px; border-radius: 999px; transition: transform .15s; border: 0; cursor: pointer; font-family: inherit; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+  .case { background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: 22px; }
+  .case small { color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; }
+  .bar { margin: 14px 0 6px; font-weight: 800; display: flex; justify-content: space-between; }
+  .track { height: 14px; border-radius: 999px; background: #0b0f18; overflow: hidden; }
+  .fill { height: 100%; border-radius: 999px; }
+  .fill.old { width: 100%; background: #ff6b6b; }
+  .fill.new { width: 4%; background: var(--accent); min-width: 14px; }
+  .case p { color: var(--muted); margin: 14px 0 0; font-size: 15px; }
+  section { padding: 44px 0; }
+  h2 { font-size: clamp(26px, 5vw, 38px); line-height: 1.1; margin: 0 0 18px; font-weight: 900; }
+  .sub { color: var(--muted); margin: -8px 0 24px; }
+  .grid { display: grid; gap: 14px; }
+  @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .item b { display: block; font-size: 19px; margin-bottom: 6px; }
+  .item p { margin: 0; color: var(--muted); font-size: 16px; }
+  .steps { display: grid; gap: 14px; counter-reset: s; }
+  @media (min-width: 720px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px 18px; position: relative; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; top: -14px; left: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #07140e; font-weight: 900; display: grid; place-items: center; }
+  .step b { display: block; font-size: 19px; margin: 6px 0 4px; }
+  .step p { margin: 0; color: var(--muted); font-size: 16px; }
+  .lead, .thanks { background: var(--card); border: 2px solid var(--accent); border-radius: 26px; padding: 22px; display: grid; gap: 12px; max-width: 560px; }
+  .lead input[type=text], .lead textarea { width: 100%; font: inherit; border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; background: #0f1420; color: var(--ink); }
+  .lead input[type=text]:focus, .lead textarea:focus { outline: none; border-color: var(--accent); }
+  .lead .btn { width: 100%; }
+  .lead .btn[disabled] { opacity: .6; }
+  .lead .note, .thanks p { margin: 0; color: var(--muted); }
+  .thanks b { font-size: 22px; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin-bottom: 10px; }
+  summary { font-weight: 800; cursor: pointer; font-size: 17px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 20px 0 30px; }
+  .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; display: none; }
+  @media (max-width: 719px) { .sticky { display: flex; } body { padding-bottom: 84px; } }
+  .sticky .btn { width: 100%; }
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div>
+    <span class="tag">🤖 AI-агенты и автоматизация</span>
+    <h1>Коммерческое предложение за <span>2 часа</span> вместо 2 дней</h1>
+    <p class="intro">Встраиваю AI-агентов в процессы компании: КП, ответы клиентам, отчёты, обработка прайсов. Человек проверяет — агент делает рутину.</p>
+    <div class="btns">
+      <a class="btn" href="#form">Бесплатный разбор →</a>
+      <a class="btn ghost" href="#what">Что автоматизируем</a>
+    </div>
+    <p class="note">Разбор вашего процесса — 30 минут, бесплатно.</p>
+  </div>
+  <div class="case">
+    <small>Кейс: оптовая компания</small>
+    <div class="bar"><span>Было: КП вручную</span><span>48 ч</span></div>
+    <div class="track"><div class="fill old"></div></div>
+    <div class="bar"><span>Стало: AI-агент + проверка</span><span>2 ч</span></div>
+    <div class="track"><div class="fill new"></div></div>
+    <p>Агент сам собирает цены поставщиков, условия и кейсы в черновик КП. Менеджер проверяет 30 минут и отправляет. Клиент получает предложение в тот же день.</p>
+  </div>
+</header>
+
+<section class="wrap" id="what">
+  <h2>Что можно отдать AI уже сейчас</h2>
+  <div class="grid">
+    <div class="item"><b>📄 Коммерческие предложения</b><p>Черновик КП из прайсов и шаблонов за минуты, а не за дни.</p></div>
+    <div class="item"><b>💬 Ответы клиентам</b><p>Агент отвечает в мессенджерах сразу, сложное передаёт человеку.</p></div>
+    <div class="item"><b>📊 Отчёты</b><p>Каждое утро сводка по продажам и заявкам прямо в Telegram.</p></div>
+    <div class="item"><b>🧾 Прайсы и документы</b><p>Разбор прайсов поставщиков, сверка цен, обновление таблиц.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Как работаем</h2>
+  <div class="steps">
+    <div class="step"><b>Разбор</b><p>30 минут: смотрим ваш процесс и находим, где AI сэкономит больше всего часов.</p></div>
+    <div class="step"><b>Пилот</b><p>Собираем агента на одной задаче и проверяем на реальных данных.</p></div>
+    <div class="step"><b>Внедрение</b><p>Подключаем к вашим таблицам, почте, мессенджерам. Обучаем команду.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="form">
+  <h2>Записаться на бесплатный разбор</h2>
+  <p class="sub">Оставьте контакт — напишем в Telegram и договоримся о времени.</p>
+  <form class="lead" id="leadForm">
+    <input type="hidden" name="entry.1640161414" value="AI-агент для бизнеса (разбор)">
+    <input type="text" name="entry.1568619659" placeholder="Имя" required autocomplete="given-name">
+    <input type="text" name="entry.1386687006" placeholder="Telegram (@ник) или телефон" required autocomplete="tel">
+    <textarea name="entry.1734235144" rows="3" placeholder="Чем занимается компания и что хотите автоматизировать?"></textarea>
+    <button class="btn" type="submit">Записаться на разбор</button>
+    <p class="note">Нажимая кнопку, вы соглашаетесь, что мы напишем вам по указанному контакту.</p>
+  </form>
+  <div class="thanks" id="thanks" hidden>
+    <b>Заявка отправлена ✅</b>
+    <p>Последний шаг: подтвердите в Telegram — туда придёт ссылка на время разбора и наш прайс.</p>
+    <a class="btn" href="https://t.me/ivan_ai_guides_bot?start=zayavka-agent">Подтвердить в Telegram →</a>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Вопросы</h2>
+  <details><summary>Сколько стоит внедрение?</summary><p>Зависит от задачи. После разбора даём точную оценку и прайс. Разбор бесплатный и ни к чему не обязывает.</p></details>
+  <details><summary>Нужен ли свой программист?</summary><p>Нет. Мы собираем и подключаем агента сами, команде остаётся проверять результат.</p></details>
+  <details><summary>Безопасны ли данные?</summary><p>Работаем с теми доступами, которые вы даёте, и только под ваши задачи. Подробно обсуждаем на разборе.</p></details>
+</section>
+
+<footer class="wrap">Иван Малютин · <a href="https://t.me/prostodelayIvan">t.me/prostodelayIvan</a></footer>
+
+<div class="sticky"><a class="btn" href="#form">Бесплатный разбор →</a></div>
+<script>
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdRADmjSk6ddCOpZDKMOXW1riZihTa5AoUqoXrUO5pfKbQoaQ/formResponse';
+  document.getElementById('leadForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.target, btn = form.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Отправляю…';
+    try {
+      await fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) });
+      form.hidden = true;
+      document.getElementById('thanks').hidden = false;
+      document.getElementById('thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Не отправилось, попробуйте ещё раз';
+    }
+  });
+</script>
+</body>
+</html>
