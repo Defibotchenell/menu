@@ -184,7 +184,8 @@
   <form class="lead" id="leadForm">
     <div class="hidden-choice"><input type="radio" name="entry.1640161414" value="Мини-курс (предзапись)" checked></div>
     <input type="text" name="entry.1568619659" placeholder="Имя" required autocomplete="given-name">
-    <input type="text" name="entry.1386687006" placeholder="Telegram (@ник) или телефон" required autocomplete="tel">
+    <input type="text" id="ig" placeholder="Ваш Instagram (@ник)" required pattern="@?[A-Za-z0-9._]{2,30}" title="Ник в Instagram, например @ivan__maliutin">
+    <input type="text" name="entry.1386687006" placeholder="Telegram @ник или телефон с кодом страны (+7…)" required pattern="(@[A-Za-z0-9_]{4,32}|\+[0-9 \-]{10,20})" title="Начните с @ (ник в Telegram) или с + (телефон с кодом страны)" autocomplete="tel">
     <textarea name="entry.1734235144" rows="3" placeholder="Чего хочешь от курса: для себя, на заказ, для блога (необязательно)"></textarea>
     <button class="btn" type="submit">Записаться</button>
     <p class="note">Нажимая кнопку, ты соглашаешься, что мы напишем тебе по указанному контакту.</p>
@@ -230,7 +231,7 @@
     const form = e.target, btn = form.querySelector('button');
     btn.disabled = true; btn.textContent = 'Отправляю…';
     const data = new FormData(form);
-    data.set('entry.1734235144', '[СТАРТ $99] ' + (data.get('entry.1734235144') || ''));
+    data.set('entry.1734235144', '[СТАРТ $99] IG: @' + document.getElementById('ig').value.replace(/^@/, '') + ' | ' + (data.get('entry.1734235144') || ''));
     try {
       await fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) });
       form.hidden = true;
