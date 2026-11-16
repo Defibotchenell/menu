@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Делай мультики и зарабатывай</title>
+<meta name="description" content="Курс: как делать Pixar-мультики нейросетью и продавать их. Видео-уроки и живые разборы.">
+<meta property="og:title" content="Делай мультики и зарабатывай">
+<meta property="og:description" content="Pixar-мультики нейросетью: от первого ролика до первых заказов.">
+<meta property="og:image" content="poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff8f1; --card: #ffffff; --ink: #2b1d14; --muted: #7a6656;
+    --accent: #ff7a45; --accent-2: #ffb547; --lilac: #b79cff; --line: #f1e3d6;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Nunito, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.5; }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  /* hero */
+  .hero { padding-top: 28px; padding-bottom: 40px; display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 820px) { .hero { grid-template-columns: 1.1fr .9fr; padding-top: 56px; padding-bottom: 64px; } }
+  .tag { display: inline-block; background: #ffe7d6; color: #c2501d; font-weight: 800; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+  h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.05; margin: 14px 0 14px; font-weight: 900; letter-spacing: -.02em; }
+  h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .intro { font-size: 19px; color: var(--muted); margin: 0 0 22px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 800; font-size: 18px; padding: 16px 26px; border-radius: 999px; box-shadow: 0 10px 24px -10px rgba(255,122,69,.8); transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); box-shadow: none; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+  .phone { justify-self: center; width: min(300px, 78vw); aspect-ratio: 9/16; border-radius: 34px; overflow: hidden; border: 8px solid #2b1d14; box-shadow: 0 30px 60px -25px rgba(43,29,20,.55); background: #000; }
+  .phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 44px 0; }
+  h2 { font-size: clamp(26px, 5vw, 38px); line-height: 1.1; margin: 0 0 18px; font-weight: 900; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: -8px 0 24px; }
+
+  /* gallery */
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 720px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+  .gallery figure { margin: 0; border-radius: 18px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+  .gallery img { width: 100%; aspect-ratio: 9/14; object-fit: cover; display: block; }
+  .gallery figcaption { font-weight: 800; font-size: 14px; padding: 8px 12px; }
+
+  /* steps */
+  .steps { display: grid; gap: 14px; counter-reset: s; }
+  @media (min-width: 720px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 20px 18px; position: relative; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; top: -14px; left: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 900; display: grid; place-items: center; font-size: 16px; }
+  .step b { display: block; font-size: 19px; margin: 6px 0 4px; }
+  .step p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* offers */
+  .offers { display: grid; gap: 18px; }
+  @media (min-width: 820px) { .offers { grid-template-columns: 1fr 1fr; } }
+  .offer { background: var(--card); border: 2px solid var(--line); border-radius: 26px; padding: 26px 22px; display: flex; flex-direction: column; }
+  .offer.main { border-color: var(--accent); box-shadow: 0 20px 40px -28px rgba(255,122,69,.9); }
+  .offer .badge { align-self: flex-start; background: var(--accent); color: #fff; font-weight: 800; font-size: 13px; padding: 5px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .offer .badge.l { background: var(--lilac); }
+  .offer h3 { font-size: 24px; margin: 0 0 6px; line-height: 1.15; }
+  .offer .price { font-size: 38px; font-weight: 900; margin: 10px 0 2px; }
+  .offer .price s { font-size: 20px; color: var(--muted); font-weight: 700; margin-left: 8px; }
+  .offer .pnote { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  .offer ul { padding: 0; margin: 0 0 22px; list-style: none; display: grid; gap: 8px; }
+  .offer li { padding-left: 28px; position: relative; font-size: 16px; }
+  .offer li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: #ffe7d6; color: #c2501d; font-weight: 900; font-size: 13px; display: grid; place-items: center; }
+  .offer .btn { margin-top: auto; width: 100%; }
+
+  /* author */
+  .author { display: grid; gap: 18px; align-items: center; background: #2b1d14; color: #fff3e8; border-radius: 28px; padding: 26px 22px; }
+  @media (min-width: 720px) { .author { grid-template-columns: auto 1fr; padding: 32px; } }
+  .author .ava { width: 96px; height: 96px; border-radius: 50%; background: url(still3.jpg) 50% 20%/cover; border: 3px solid var(--accent-2); }
+  .author p { margin: 6px 0 0; color: #e8d6c6; }
+  .author b { color: #fff; font-size: 20px; }
+
+  /* faq */
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin-bottom: 10px; }
+  summary { font-weight: 800; cursor: pointer; font-size: 17px; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  /* form */
+  .lead, .thanks { background: var(--card); border: 2px solid var(--accent); border-radius: 26px; padding: 22px; display: grid; gap: 12px; max-width: 560px; }
+  .choice { display: grid; gap: 8px; }
+  .choice label { display: flex; align-items: center; gap: 10px; border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; font-weight: 800; cursor: pointer; }
+  .choice label:has(input:checked) { border-color: var(--accent); background: #fff1e8; }
+  .choice input { accent-color: var(--accent); width: 18px; height: 18px; }
+  .lead input[type=text], .lead textarea { width: 100%; font: inherit; border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; background: #fffdfa; color: var(--ink); }
+  .lead input[type=text]:focus, .lead textarea:focus { outline: none; border-color: var(--accent); }
+  .lead .btn { width: 100%; border: 0; cursor: pointer; font-family: inherit; }
+  .lead .btn[disabled] { opacity: .6; }
+  .lead .note { margin: 0; }
+  .thanks b { font-size: 22px; }
+  .thanks p { margin: 0; color: var(--muted); }
+
+  .final { text-align: center; padding: 50px 0 70px; }
+  .final .btn { font-size: 19px; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 0 0 30px; }
+
+  .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; display: none; }
+  @media (max-width: 719px) { .sticky { display: flex; } body { padding-bottom: 84px; } }
+  .sticky .btn { width: 100%; }
+  .offer.solo { max-width: 560px; }
+  .lead .hidden-choice { display: none; }
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div>
+    <span class="tag">🎬 Курс · предзапись открыта</span>
+    <h1>Делай мультики <span>и зарабатывай</span></h1>
+    <p class="intro">Pixar-мультики нейросетью, дома, без художки и камеры. Такие ролики заказывают на подарки, для блогов и для бизнеса — и это можно делать вечером на диване.</p>
+    <div class="btns">
+      <a class="btn" href="#form">Записаться на курс →</a>
+      <a class="btn ghost" href="#program">Что внутри</a>
+    </div>
+    <p class="note">Все мультики на этой странице сделаны мной по этому методу.</p>
+  </div>
+  <div class="phone"><video src="hero.mp4" autoplay muted loop playsinline poster="poster.jpg"></video></div>
+</header>
+
+<section class="wrap">
+  <h2>Вот что ты научишься делать</h2>
+  <p class="sub">Одни и те же герои в каждой серии — лица не «плывут» от кадра к кадру.</p>
+  <div class="gallery">
+    <figure><img src="still1.jpg" alt="Утро малышки" loading="lazy"><figcaption>Утро малышки</figcaption></figure>
+    <figure><img src="still2.jpg" alt="Бусинка" loading="lazy"><figcaption>Бусинка</figcaption></figure>
+    <figure><img src="still3.jpg" alt="Кровать" loading="lazy"><figcaption>Кровать</figcaption></figure>
+    <figure><img src="still4.jpg" alt="Мужчина мечты" loading="lazy"><figcaption>Мужчина мечты</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap" id="program">
+  <h2>Что внутри курса</h2>
+  <div class="steps">
+    <div class="step"><b>Персонажи по фото</b><p>Лист персонажа в одном стиле — главный секрет, без него герои меняются в каждом кадре.</p></div>
+    <div class="step"><b>Сюжеты, которые уже залетели</b><p>Как находить ролики-хиты и повторять их ритм секунда в секунду со своими героями.</p></div>
+    <div class="step"><b>Кадры, анимация и голоса</b><p>Промпты для кадров и оживления, живые голоса с паузами, музыка и звуки.</p></div>
+    <div class="step"><b>Где брать заказы</b><p>Что продавать (подарки, блогеры, бизнес), как упаковать предложение и показывать работы.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="offers">
+  <h2>Формат и цена</h2>
+  <div class="offers">
+    <div class="offer main solo">
+      <span class="badge">Предзапись</span>
+      <h3>Курс «Делай мультики и зарабатывай»</h3>
+      <div class="price">$99</div>
+      <div class="pnote">Оплата — при старте курса, ссылку пришлём в Telegram</div>
+      <ul>
+        <li>Видео-уроки: от фото до готового мультика</li>
+        <li>AMA-сессии: живые разборы по каждому уроку и ответы на вопросы</li>
+        <li>Готовые промпты для персонажей, кадров и анимации</li>
+        <li>Разбор твоих работ на сессиях</li>
+      </ul>
+      <a class="btn" href="#form">Записаться на курс</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="form">
+  <h2>Записаться</h2>
+  <p class="sub">30 секунд — и ты в списке. Напишем в Telegram перед стартом.</p>
+  <form class="lead" id="leadForm">
+    <div class="hidden-choice"><input type="radio" name="entry.1640161414" value="Мини-курс (предзапись)" checked></div>
+    <input type="text" name="entry.1568619659" placeholder="Имя" required autocomplete="given-name">
+    <input type="text" name="entry.1386687006" placeholder="Telegram (@ник) или телефон" required autocomplete="tel">
+    <textarea name="entry.1734235144" rows="3" placeholder="Чего хочешь от курса: для себя, на заказ, для блога (необязательно)"></textarea>
+    <button class="btn" type="submit">Записаться</button>
+    <p class="note">Нажимая кнопку, ты соглашаешься, что мы напишем тебе по указанному контакту.</p>
+  </form>
+  <div class="thanks" id="thanks" hidden>
+    <b>Почти готово 🎉</b>
+    <p>Последний шаг: подтверди запись в Telegram — туда придут старт, оплата и подарки для первых.</p>
+    <a class="btn" id="tgConfirm" href="https://t.me/ivan_ai_guides_bot?start=zayavka-start">Подтвердить в Telegram →</a>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="author">
+    <div class="ava" role="img" aria-label="Иван"></div>
+    <div>
+      <b>Привет, я Иван Малютин</b>
+      <p>15 лет в бизнесе, живу в Дубае. Делаю мультики про свою семью и работаю с нейросетями каждый день. В курсе — ровно тот процесс, по которому я делаю каждую серию.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Частые вопросы</h2>
+  <details><summary>Нужно уметь рисовать или монтировать?</summary><p>Нет. Всё делают нейросети, а ты управляешь ими по шагам.</p></details>
+  <details><summary>Сколько стоят нейросети?</summary><p>Для первого мультика хватает бесплатных кредитов. Дальше — от нескольких долларов в месяц, на уроках показываю, где дешевле.</p></details>
+  <details><summary>Что такое AMA-сессии?</summary><p>Живые созвоны после уроков: разбираем ваши мультики и отвечаем на любые вопросы.</p></details>
+  <details><summary>Получится с телефона?</summary><p>Да, сервисы работают в браузере на телефоне. С ноутбука просто удобнее.</p></details>
+</section>
+
+<section class="wrap final">
+  <h2>Первый мультик — уже на этой неделе</h2>
+  <a class="btn" href="#form">Записаться на курс →</a>
+</section>
+
+<footer class="wrap">Иван Малютин · <a href="https://t.me/prostodelayIvan">t.me/prostodelayIvan</a></footer>
+
+<div class="sticky"><a class="btn" href="#form">Записаться на курс →</a></div>
+<script>
+  // Заявка уходит в Google-форму (ответы — в таблицу), страницу не покидаем
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdRADmjSk6ddCOpZDKMOXW1riZihTa5AoUqoXrUO5pfKbQoaQ/formResponse';
+  document.getElementById('leadForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.target, btn = form.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Отправляю…';
+    const data = new FormData(form);
+    data.set('entry.1734235144', '[СТАРТ $99] ' + (data.get('entry.1734235144') || ''));
+    try {
+      await fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) });
+      form.hidden = true;
+      document.getElementById('thanks').hidden = false;
+      document.getElementById('thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Не отправилось, попробуй ещё раз';
+    }
+  });
+</script>
+</body>
+</html>
